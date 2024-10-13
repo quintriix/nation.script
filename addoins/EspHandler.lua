@@ -1,6 +1,6 @@
 local ESP = {
 	Enabled = false, 
-	Color = Color3.fromRGB(255, 255, 255), 
+	Color = Color3.fromRGB(140, 105, 181),
 
 	Rainbow = false, 
 	Boxes = false, 
