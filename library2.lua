@@ -1592,7 +1592,6 @@ end
 elseif type == "TextBox" then
     Border.Size = Border.Size + UDim2.new(0, 0, 0, 30)
 
-    -- Asegúrate de que data.default esté configurado correctamente
     local defaultText = data.default and data.default.Text or ""
     local value = {Text = defaultText}
 
@@ -1644,7 +1643,7 @@ elseif type == "TextBox" then
         end
         if TextBox.Text ~= value.Text then
             value.Text = TextBox.Text
-            do_callback()
+            do_callback()  -- Asegúrate de que esta función esté definida
         end
     end)
 
@@ -1660,7 +1659,9 @@ elseif type == "TextBox" then
 
     function element:set_value(new_value, cb)
         value = new_value or value
-        TextBox.Text = value.Text
+        if value and value.Text then
+            TextBox.Text = value.Text
+        end
 
         if cb == nil or not cb then
             do_callback()
