@@ -1651,7 +1651,7 @@ function library:CreateWindow(name, size, hidebutton)
 					slider.Gradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(49, 49, 49)), ColorSequenceKeypoint.new(1, Color3.fromRGB(41, 41, 41))})
 
 					slider.SlideBar = Instance.new("Frame", slider.Main)
-					slider.SlideBar.BackgroundColor3 = extracolor
+					slider.SlideBar.BackgroundColor3 = window.theme.extracolor
 					slider.SlideBar.ZIndex = 8
 					slider.SlideBar.BorderSizePixel = 0
 					slider.SlideBar.Size = UDim2.fromOffset(0, slider.Main.Size.Y.Offset)
@@ -1999,7 +1999,7 @@ function library:CreateWindow(name, size, hidebutton)
 				slider.Gradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(49, 49, 49)), ColorSequenceKeypoint.new(1, Color3.fromRGB(41, 41, 41))})
 
 				slider.SlideBar = Instance.new("Frame", slider.Main)
-				slider.SlideBar.BackgroundColor3 = extracolor
+				slider.SlideBar.BackgroundColor3 = window.theme.extracolor
 				slider.SlideBar.ZIndex = 5
 				slider.SlideBar.BorderSizePixel = 0
 				slider.SlideBar.Size = UDim2.fromOffset(0, slider.Main.Size.Y.Offset)
