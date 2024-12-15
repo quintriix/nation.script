@@ -659,10 +659,10 @@ function library:CreateWindow(name, size, hidebutton)
 				toggle.BlackOutline2.ZIndex = 4
 				toggle.BlackOutline2.Size = toggle.Main.Size + UDim2.fromOffset(6, 6)
 				toggle.BlackOutline2.BorderSizePixel = 0
-				toggle.BlackOutline2.BackgroundColor3 = window.theme.extracolor
+				toggle.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
 				toggle.BlackOutline2.Position = UDim2.fromOffset(- 3, - 3)
 				updateevent.Event:Connect(function(theme)
-					toggle.BlackOutline2.BackgroundColor3 = theme.extracolor
+					toggle.BlackOutline2.BackgroundColor3 = theme.outlinecolor2
 				end)
 
 				toggle.Outline = Instance.new("Frame", toggle.Main)
@@ -713,7 +713,7 @@ function library:CreateWindow(name, size, hidebutton)
 				toggle.CheckedFrame = Instance.new("Frame", toggle.Main)
 				toggle.CheckedFrame.ZIndex = 5
 				toggle.CheckedFrame.BorderSizePixel = 0
-				toggle.CheckedFrame.BackgroundColor3 = window.theme.extracolor
+				toggle.CheckedFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				toggle.CheckedFrame.Size = toggle.Main.Size
 
 				toggle.Gradient2 = Instance.new("UIGradient", toggle.CheckedFrame)
@@ -1747,7 +1747,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				local MouseEnter = function()
-					toggle.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+					toggle.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 				end
 
 				local MouseLeave = function()
