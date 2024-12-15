@@ -36,7 +36,7 @@ library.theme = {
 	buttoncolor2 = Color3.fromRGB(29, 29, 29),
 	itemscolor = Color3.fromRGB(170, 170, 170), 
 	itemscolor2 = Color3.fromRGB(255, 255, 255),
-    extracolor = Color3.fromRGB(127, 0, 255)
+	extracolor = Color3.fromRGB(127, 0, 255)
 }
 
 if library.theme.cursor then
@@ -125,33 +125,6 @@ function library:CreateWindow(name, size, hidebutton)
 		window.Frame.BackgroundColor3 = theme.backgroundcolor
 	end)
 
-    window.DropShadowHolder = Instance.new("Frame", window.Frame)
-    window.DropShadowHolder.ZIndex = 0
-    window.DropShadowHolder.BorderSizePixel = 0
-    window.DropShadowHolder.Size = UDim2.fromScale(1, 0, 1, 0)
-    window.DropShadowHolder.Name = "DropShadowHolder"
-    window.DropShadowHolder.BackgroundTransparency = 1
-
-    window.DropShadow = Instance.new("ImageLabel", window.DropShadowHolder)
-    window.DropShadow.ZIndex = 0
-    window.DropShadow.BorderSizePixel = 0
-    window.DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
-    window.DropShadow.ScaleType = Enum.ScaleType.Slice
-    window.DropShadow.ImageTransparency = 0.5
-    window.DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-    window.DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-    window.DropShadow.Image = "rbxassetid://6014261993"
-    window.DropShadow.Size = UDim2.fromScale(1, 47, 1, 47)
-    window.DropShadow.BackgroundTransparency = 1
-    window.DropShadow.Name = "DropShadow"
-    window.DropShadow.Position = UDim2.fromScale(0.5, 0.5)
-	updateevent.Event:Connect(function(theme)
-		window.DropShadow.BackgroundColor3 = theme.extracolor
-	end)
-
-    window.UICorner = Instance.new("UICorner", window.Frame)
-    window.UICorner.CornerRadius = UDim.fromOffset(0, 10)
-
 	uis.InputBegan:Connect(function(key)
 		if key.KeyCode == window.hidebutton then
 			window.Frame.Visible = not window.Frame.Visible
@@ -180,6 +153,9 @@ function library:CreateWindow(name, size, hidebutton)
 		window.BlackOutline.BackgroundColor3 = theme.outlinecolor2
 	end)
 
+	window.UICorner = Instance.new("UICorner", window.BlackOutline)
+	window.UICorner.CornerRadius = UDim.fromOffset(0, 10)
+
 	window.Outline = Instance.new("Frame", window.Frame)
 	window.Outline.Name = "outline"
 	window.Outline.ZIndex = 0
@@ -191,6 +167,9 @@ function library:CreateWindow(name, size, hidebutton)
 		window.Outline.BackgroundColor3 = theme.outlinecolor
 	end)
 
+	window.UICorner = Instance.new("UICorner", window.Outline)
+	window.UICorner.CornerRadius = UDim.fromOffset(0, 10)
+
 	window.BlackOutline2 = Instance.new("Frame", window.Frame)
 	window.BlackOutline2.Name = "outline"
 	window.BlackOutline2.ZIndex = - 1
@@ -201,6 +180,9 @@ function library:CreateWindow(name, size, hidebutton)
 	updateevent.Event:Connect(function(theme)
 		window.BlackOutline2.BackgroundColor3 = theme.outlinecolor2
 	end)
+
+	window.UICorner = Instance.new("UICorner", window.BlackOutline2)
+	window.UICorner.CornerRadius = UDim.fromOffset(0, 10)
 
 	window.TopBar = Instance.new("Frame", window.Frame)
 	window.TopBar.Name = "top"
