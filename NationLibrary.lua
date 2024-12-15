@@ -588,7 +588,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				button.BlackOutline2.MouseEnter:Connect(function()
-					button.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+					button.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 				end)
 
 				button.BlackOutline2.MouseLeave:Connect(function()
@@ -1184,7 +1184,7 @@ function library:CreateWindow(name, size, hidebutton)
 					dropdown.Nav.MouseButton1Down:Connect(MouseButton1Down)
 
 					dropdown.BlackOutline2.MouseEnter:Connect(function()
-						dropdown.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+						dropdown.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 					end)
 					dropdown.BlackOutline2.MouseLeave:Connect(function()
 						dropdown.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
@@ -1293,7 +1293,7 @@ function library:CreateWindow(name, size, hidebutton)
 					end)
 
 					textbox.BlackOutline2.MouseEnter:Connect(function()
-						textbox.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+						textbox.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 					end)
 					textbox.BlackOutline2.MouseLeave:Connect(function()
 						textbox.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
@@ -1363,7 +1363,7 @@ function library:CreateWindow(name, size, hidebutton)
 					end)
 
 					colorpicker.BlackOutline2.MouseEnter:Connect(function()
-						colorpicker.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+						colorpicker.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 					end)
 
 					colorpicker.BlackOutline2.MouseLeave:Connect(function()
@@ -1664,7 +1664,7 @@ function library:CreateWindow(name, size, hidebutton)
 					end)
 
 					slider.BlackOutline2.MouseEnter:Connect(function()
-						slider.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+						slider.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 					end)
 					slider.BlackOutline2.MouseLeave:Connect(function()
 						slider.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
@@ -1882,7 +1882,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				textbox.BlackOutline2.MouseEnter:Connect(function()
-					textbox.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+					textbox.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 				end)
 				textbox.BlackOutline2.MouseLeave:Connect(function()
 					textbox.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
@@ -1999,7 +1999,7 @@ function library:CreateWindow(name, size, hidebutton)
 				slider.Gradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(49, 49, 49)), ColorSequenceKeypoint.new(1, Color3.fromRGB(41, 41, 41))})
 
 				slider.SlideBar = Instance.new("Frame", slider.Main)
-				slider.SlideBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				slider.SlideBar.BackgroundColor3 = extracolor
 				slider.SlideBar.ZIndex = 5
 				slider.SlideBar.BorderSizePixel = 0
 				slider.SlideBar.Size = UDim2.fromOffset(0, slider.Main.Size.Y.Offset)
@@ -2012,7 +2012,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				slider.BlackOutline2.MouseEnter:Connect(function()
-					slider.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+					slider.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 				end)
 				slider.BlackOutline2.MouseLeave:Connect(function()
 					slider.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
@@ -2166,7 +2166,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				colorpicker.BlackOutline2.MouseEnter:Connect(function()
-					colorpicker.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+					colorpicker.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 				end)
 				colorpicker.BlackOutline2.MouseLeave:Connect(function()
 					if not window.OpenedColorPickers[colorpicker.MainPicker] then
@@ -3194,7 +3194,7 @@ function library:CreateWindow(name, size, hidebutton)
 				dropdown.Nav.MouseButton1Down:Connect(MouseButton1Down)
 
 				dropdown.BlackOutline2.MouseEnter:Connect(function()
-					dropdown.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+					dropdown.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 				end)
 				dropdown.BlackOutline2.MouseLeave:Connect(function()
 					dropdown.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
