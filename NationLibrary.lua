@@ -35,8 +35,7 @@ library.theme = {
 	buttoncolor = Color3.fromRGB(49, 49, 49),
 	buttoncolor2 = Color3.fromRGB(29, 29, 29),
 	itemscolor = Color3.fromRGB(170, 170, 170), 
-	itemscolor2 = Color3.fromRGB(255, 255, 255),
-    corner = UDim.new(0, 10)
+	itemscolor2 = Color3.fromRGB(255, 255, 255)
 }
 
 if library.theme.cursor then
@@ -152,12 +151,6 @@ function library:CreateWindow(name, size, hidebutton)
 		window.BlackOutline.BackgroundColor3 = theme.outlinecolor2
 	end)
 
-	window.UICorner1 = Instance.new("UICorner", window.BlackOutline)
-	window.UICorner1.CornerRadius = window.theme.corner
-	updateevent.Event:Connect(function(theme)
-		window.UICorner1.CornerRadius = theme.corner
-	end)
-
 	window.Outline = Instance.new("Frame", window.Frame)
 	window.Outline.Name = "outline"
 	window.Outline.ZIndex = 0
@@ -169,12 +162,6 @@ function library:CreateWindow(name, size, hidebutton)
 		window.Outline.BackgroundColor3 = theme.outlinecolor
 	end)
 
-    window.UICorner2 = Instance.new("UICorner", window.Outline)
-	window.UICorner2.CornerRadius = window.theme.corner
-	updateevent.Event:Connect(function(theme)
-		window.UICorner2.CornerRadius = theme.corner
-	end)
-
 	window.BlackOutline2 = Instance.new("Frame", window.Frame)
 	window.BlackOutline2.Name = "outline"
 	window.BlackOutline2.ZIndex = - 1
@@ -184,12 +171,6 @@ function library:CreateWindow(name, size, hidebutton)
 	window.BlackOutline2.Position = UDim2.fromOffset(- 3, - 3)
 	updateevent.Event:Connect(function(theme)
 		window.BlackOutline2.BackgroundColor3 = theme.outlinecolor2
-	end)
-
-    window.UICorner3 = Instance.new("UICorner", window.BlackOutline2)
-	window.UICorner3.CornerRadius = window.theme.corner
-	updateevent.Event:Connect(function(theme)
-		window.UICorner3.CornerRadius = theme.corner
 	end)
 
 	window.TopBar = Instance.new("Frame", window.Frame)
