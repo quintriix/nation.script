@@ -152,6 +152,9 @@ function library:CreateWindow(name, size, hidebutton)
 		window.BlackOutline.BackgroundColor3 = theme.outlinecolor2
 	end)
 
+    window.Corner1 = Instance.new("UICorner", window.BlackOutline)
+    window.Corner1.CornerRadius = UDim.new(0, 10)
+
 	window.Outline = Instance.new("Frame", window.Frame)
 	window.Outline.Name = "outline"
 	window.Outline.ZIndex = 0
@@ -163,6 +166,9 @@ function library:CreateWindow(name, size, hidebutton)
 		window.Outline.BackgroundColor3 = theme.outlinecolor
 	end)
 
+    window.Corner2 = Instance.new("UICorner", window.Outline)
+    window.Corner2.CornerRadius = UDim.new(0, 10)
+
 	window.BlackOutline2 = Instance.new("Frame", window.Frame)
 	window.BlackOutline2.Name = "outline"
 	window.BlackOutline2.ZIndex = - 1
@@ -173,6 +179,9 @@ function library:CreateWindow(name, size, hidebutton)
 	updateevent.Event:Connect(function(theme)
 		window.BlackOutline2.BackgroundColor3 = theme.extracolor
 	end)
+
+    window.Corner3 = Instance.new("UICorner", window.BlackOutline2)
+    window.Corner3.CornerRadius = UDim.new(0, 10)
 
 	window.TopBar = Instance.new("Frame", window.Frame)
 	window.TopBar.Name = "top"
@@ -395,9 +404,9 @@ function library:CreateWindow(name, size, hidebutton)
 			sector.Line.Size = UDim2.fromOffset(sector.Main.Size.X.Offset + 4, 1)
 			sector.Line.BorderSizePixel = 0
 			sector.Line.Position = UDim2.fromOffset(- 2, - 2)
-			sector.Line.BackgroundColor3 = window.theme.accentcolor
+			sector.Line.BackgroundColor3 = window.theme.extracolor
 			updateevent.Event:Connect(function(theme)
-				sector.Line.BackgroundColor3 = theme.accentcolor
+				sector.Line.BackgroundColor3 = theme.extracolor
 			end)
 
 			sector.BlackOutline = Instance.new("Frame", sector.Main)
