@@ -20,20 +20,20 @@ library.theme = {
 	tilesize = 90, 
 	cursor = false, 
 	cursorimg = "https://t0.rbxcdn.com/42f66da98c40252ee151326a82aab51f", 
-	backgroundcolor = Color3.fromRGB(20, 20, 20), 
-	tabstextcolor = Color3.fromRGB(207, 207, 207), 
-	bordercolor = Color3.fromRGB(75, 207, 255), 
-	accentcolor = Color3.fromRGB(207, 207, 207), 
-	accentcolor2 = Color3.fromRGB(108, 108, 108), 
-	outlinecolor = Color3.fromRGB(20, 20, 20), 
-	outlinecolor2 = Color3.fromRGB(30, 30, 30), 
-	sectorcolor = Color3.fromRGB(30, 30, 30), 
-	toptextcolor = Color3.fromRGB(255, 255, 255), 
-	topheight = 48, 
-	topcolor = Color3.fromRGB(30, 30, 30), 
-	topcolor2 = Color3.fromRGB(12, 12, 12), 
-	buttoncolor = Color3.fromRGB(49, 49, 49), 
-	buttoncolor2 = Color3.fromRGB(29, 29, 29), 
+	backgroundcolor = Color3.fromRGB(20, 20, 20),
+	tabstextcolor = Color3.fromRGB(207, 207, 207),
+	bordercolor = Color3.fromRGB(75, 207, 255),
+	accentcolor = Color3.fromRGB(207, 207, 207),
+	accentcolor2 = Color3.fromRGB(108, 108, 108),
+	outlinecolor = Color3.fromRGB(255, 255, 255), --20, 20, 20
+	outlinecolor2 = Color3.fromRGB(30, 30, 30),
+	sectorcolor = Color3.fromRGB(30, 30, 30),
+	toptextcolor = Color3.fromRGB(255, 255, 255),
+	topheight = 48,
+	topcolor = Color3.fromRGB(30, 30, 30),
+	topcolor2 = Color3.fromRGB(12, 12, 12),
+	buttoncolor = Color3.fromRGB(49, 49, 49),
+	buttoncolor2 = Color3.fromRGB(29, 29, 29),
 	itemscolor = Color3.fromRGB(170, 170, 170), 
 	itemscolor2 = Color3.fromRGB(255, 255, 255)
 }
@@ -67,7 +67,7 @@ end
 
 function library:CreateWindow(name, size, hidebutton)
 	local window = {}
-	window.name = name or ""
+	window.name = name or "Nation.Dahood | quintrix | .gg/nationdahood"
 	window.size = UDim2.fromOffset(size.X, size.Y) or UDim2.fromOffset(500, 600)
 	window.hidebutton = hidebutton or Enum.KeyCode.RightShift
 	window.theme = library.theme
