@@ -268,7 +268,6 @@ local Azure = (function() -- src/Lua/Interface/Interface.Lua
 		UI["5"]["BorderSizePixel"] = 0
 		UI["5"]["BackgroundColor3"] = Color3FromRGB(255, 255, 255)
 		UI["5"]["TextSize"] = 16
-		UI["5"]["FontFace"] = FontFace
 		UI["5"]["TextColor3"] = Color3FromRGB(255, 255, 255)
 		UI["5"]["BackgroundTransparency"] = 1
 		UI["5"]["Size"] = UDim2New(0, 81, 0, 20)
