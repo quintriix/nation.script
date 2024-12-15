@@ -35,7 +35,8 @@ library.theme = {
 	buttoncolor = Color3.fromRGB(49, 49, 49),
 	buttoncolor2 = Color3.fromRGB(29, 29, 29),
 	itemscolor = Color3.fromRGB(170, 170, 170), 
-	itemscolor2 = Color3.fromRGB(255, 255, 255)
+	itemscolor2 = Color3.fromRGB(255, 255, 255),
+    extracolor = Color3.fromRGB(127, 0, 255)
 }
 
 if library.theme.cursor then
@@ -167,10 +168,10 @@ function library:CreateWindow(name, size, hidebutton)
 	window.BlackOutline2.ZIndex = - 1
 	window.BlackOutline2.Size = window.size + UDim2.fromOffset(6, 6)
 	window.BlackOutline2.BorderSizePixel = 0
-	window.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
+	window.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 	window.BlackOutline2.Position = UDim2.fromOffset(- 3, - 3)
 	updateevent.Event:Connect(function(theme)
-		window.BlackOutline2.BackgroundColor3 = theme.outlinecolor2
+		window.BlackOutline2.BackgroundColor3 = theme.extracolor
 	end)
 
 	window.TopBar = Instance.new("Frame", window.Frame)
@@ -212,9 +213,9 @@ function library:CreateWindow(name, size, hidebutton)
 	window.Line2.Position = UDim2.fromOffset(0, window.TopBar.AbsoluteSize.Y / 2.1)
 	window.Line2.Size = UDim2.fromOffset(window.size.X.Offset, 1)
 	window.Line2.BorderSizePixel = 0
-	window.Line2.BackgroundColor3 = window.theme.accentcolor
+	window.Line2.BackgroundColor3 = window.theme.extracolor
 	updateevent.Event:Connect(function(theme)
-		window.Line2.BackgroundColor3 = theme.accentcolor
+		window.Line2.BackgroundColor3 = theme.extracolor
 	end)
 
 	window.TabList = Instance.new("Frame", window.TopBar)
@@ -262,9 +263,9 @@ function library:CreateWindow(name, size, hidebutton)
 	window.Line.Position = UDim2.fromOffset(0, 0)
 	window.Line.Size = UDim2.fromOffset(60, 1)
 	window.Line.BorderSizePixel = 0
-	window.Line.BackgroundColor3 = window.theme.accentcolor
+	window.Line.BackgroundColor3 = window.theme.extracolor
 	updateevent.Event:Connect(function(theme)
-		window.Line.BackgroundColor3 = theme.accentcolor
+		window.Line.BackgroundColor3 = theme.extracolor
 	end)
 
 	window.ListLayout = Instance.new("UIListLayout", window.TabList)
