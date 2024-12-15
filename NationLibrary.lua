@@ -174,10 +174,10 @@ function library:CreateWindow(name, size, hidebutton)
 	window.BlackOutline2.ZIndex = - 1
 	window.BlackOutline2.Size = window.size + UDim2.fromOffset(6, 6)
 	window.BlackOutline2.BorderSizePixel = 0
-	window.BlackOutline2.BackgroundColor3 = window.theme.extracolor
+	window.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor
 	window.BlackOutline2.Position = UDim2.fromOffset(- 3, - 3)
 	updateevent.Event:Connect(function(theme)
-		window.BlackOutline2.BackgroundColor3 = theme.extracolor
+		window.BlackOutline2.BackgroundColor3 = theme.outlinecolor
 	end)
 
     window.Corner3 = Instance.new("UICorner", window.BlackOutline2)
@@ -280,6 +280,7 @@ function library:CreateWindow(name, size, hidebutton)
 	window.ListLayout = Instance.new("UIListLayout", window.TabList)
 	window.ListLayout.FillDirection = Enum.FillDirection.Horizontal
 	window.ListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    window.ListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
 	window.OpenedColorPickers = {}
 	window.Tabs = {}
@@ -304,6 +305,7 @@ function library:CreateWindow(name, size, hidebutton)
 		updateevent.Event:Connect(function(theme)
 			local size = textservice:GetTextSize(tab.name, theme.fontsize, theme.font, Vector2.new(200, 300))
 			tab.TabButton.TextColor3 = tab.TabButton.Name == "SelectedTab" and theme.accentcolor or theme.tabstextcolor
+            tab.TabButton.BackgroundTransparency = 0.925
 			tab.TabButton.Font = theme.font
 			tab.TabButton.Size = UDim2.fromOffset(size.X + 15, window.TabList.AbsoluteSize.Y - 1)
 			tab.TabButton.TextSize = theme.fontsize
@@ -657,10 +659,10 @@ function library:CreateWindow(name, size, hidebutton)
 				toggle.BlackOutline2.ZIndex = 4
 				toggle.BlackOutline2.Size = toggle.Main.Size + UDim2.fromOffset(6, 6)
 				toggle.BlackOutline2.BorderSizePixel = 0
-				toggle.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
+				toggle.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 				toggle.BlackOutline2.Position = UDim2.fromOffset(- 3, - 3)
 				updateevent.Event:Connect(function(theme)
-					toggle.BlackOutline2.BackgroundColor3 = theme.outlinecolor2
+					toggle.BlackOutline2.BackgroundColor3 = theme.extracolor
 				end)
 
 				toggle.Outline = Instance.new("Frame", toggle.Main)
@@ -711,7 +713,7 @@ function library:CreateWindow(name, size, hidebutton)
 				toggle.CheckedFrame = Instance.new("Frame", toggle.Main)
 				toggle.CheckedFrame.ZIndex = 5
 				toggle.CheckedFrame.BorderSizePixel = 0
-				toggle.CheckedFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				toggle.CheckedFrame.BackgroundColor3 = window.theme.extracolor
 				toggle.CheckedFrame.Size = toggle.Main.Size
 
 				toggle.Gradient2 = Instance.new("UIGradient", toggle.CheckedFrame)
