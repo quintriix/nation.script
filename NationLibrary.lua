@@ -36,7 +36,8 @@ library.theme = {
 	buttoncolor2 = Color3.fromRGB(29, 29, 29),
 	itemscolor = Color3.fromRGB(170, 170, 170), 
 	itemscolor2 = Color3.fromRGB(255, 255, 255),
-	extracolor = Color3.fromRGB(127, 0, 255)
+	extracolor = Color3.fromRGB(127, 0, 255),
+	corner = UDim.fromOffset(0, 10)
 }
 
 if library.theme.cursor then
@@ -82,7 +83,7 @@ function library:CreateWindow(name, size, hidebutton)
 	window.Main = Instance.new("ScreenGui", coregui)
 	window.Main.Name = name
 	window.Main.DisplayOrder = 15
-    window.Main.ZIndexBehavior = Enum.ZIndexBehavior.Global
+	window.Main.ZIndexBehavior = Enum.ZIndexBehavior.Global
 
 	local dragging, draginput2, dragstart2, startpos
 	uis.InputChanged:Connect(function(input)
@@ -153,8 +154,11 @@ function library:CreateWindow(name, size, hidebutton)
 		window.BlackOutline.BackgroundColor3 = theme.outlinecolor2
 	end)
 
-	window.UICorner = Instance.new("UICorner", window.BlackOutline)
-	window.UICorner.CornerRadius = UDim.fromOffset(0, 10)
+	window.UICorner1 = Instance.new("UICorner", window.BlackOutline)
+	window.UICorner1.CornerRadius = theme.corner
+	updateevent.Event:Connect(function(theme)
+		window.UICorner1.CornerRadius = theme.corner
+	end)
 
 	window.Outline = Instance.new("Frame", window.Frame)
 	window.Outline.Name = "outline"
@@ -167,8 +171,11 @@ function library:CreateWindow(name, size, hidebutton)
 		window.Outline.BackgroundColor3 = theme.outlinecolor
 	end)
 
-	window.UICorner = Instance.new("UICorner", window.Outline)
-	window.UICorner.CornerRadius = UDim.fromOffset(0, 10)
+	window.UICorner2 = Instance.new("UICorner", window.Outline)
+	window.UICorner2.CornerRadius = theme.corner
+	updateevent.Event:Connect(function(theme)
+		window.UICorner2.CornerRadius = theme.corner
+	end)
 
 	window.BlackOutline2 = Instance.new("Frame", window.Frame)
 	window.BlackOutline2.Name = "outline"
@@ -181,8 +188,11 @@ function library:CreateWindow(name, size, hidebutton)
 		window.BlackOutline2.BackgroundColor3 = theme.outlinecolor2
 	end)
 
-	window.UICorner = Instance.new("UICorner", window.BlackOutline2)
-	window.UICorner.CornerRadius = UDim.fromOffset(0, 10)
+	window.UICorner3 = Instance.new("UICorner", window.BlackOutline2)
+	window.UICorner3.CornerRadius = theme.corner
+	updateevent.Event:Connect(function(theme)
+		window.UICorner3.CornerRadius = theme.corner
+	end)
 
 	window.TopBar = Instance.new("Frame", window.Frame)
 	window.TopBar.Name = "top"
