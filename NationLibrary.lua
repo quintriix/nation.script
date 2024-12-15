@@ -26,7 +26,7 @@ library.theme = {
 	accentcolor = Color3.fromRGB(207, 207, 207),
 	accentcolor2 = Color3.fromRGB(108, 108, 108),
 	outlinecolor = Color3.fromRGB(20, 20, 20),
-	outlinecolor2 = Color3.fromRGB(255, 255, 255), --30, 30, 30
+	outlinecolor2 = Color3.fromRGB(30, 30, 30),
 	sectorcolor = Color3.fromRGB(30, 30, 30),
 	toptextcolor = Color3.fromRGB(255, 255, 255),
 	topheight = 48,
@@ -35,7 +35,8 @@ library.theme = {
 	buttoncolor = Color3.fromRGB(49, 49, 49),
 	buttoncolor2 = Color3.fromRGB(29, 29, 29),
 	itemscolor = Color3.fromRGB(170, 170, 170), 
-	itemscolor2 = Color3.fromRGB(255, 255, 255)
+	itemscolor2 = Color3.fromRGB(255, 255, 255),
+    extracolor = Color3.fromRGB(127, 0, 255)
 }
 
 if library.theme.cursor then
@@ -81,6 +82,7 @@ function library:CreateWindow(name, size, hidebutton)
 	window.Main = Instance.new("ScreenGui", coregui)
 	window.Main.Name = name
 	window.Main.DisplayOrder = 15
+    window.Main.ZIndexBehavior = Enum.ZIndexBehavior.Global
 
 	local dragging, draginput2, dragstart2, startpos
 	uis.InputChanged:Connect(function(input)
@@ -122,6 +124,33 @@ function library:CreateWindow(name, size, hidebutton)
 	updateevent.Event:Connect(function(theme)
 		window.Frame.BackgroundColor3 = theme.backgroundcolor
 	end)
+
+    window.DropShadowHolder = Instance.new("Frame", window.Frame)
+    window.DropShadowHolder.ZIndex = 0
+    window.DropShadowHolder.BorderSizePixel = 0
+    window.DropShadowHolder.Size = UDim2.fromScale(1, 0, 1, 0)
+    window.DropShadowHolder.Name = "DropShadowHolder"
+    window.DropShadowHolder.BackgroundTransparency = 1
+
+    window.DropShadow = Instance.new("ImageLabel", window.DropShadowHolder)
+    window.DropShadow.ZIndex = 0
+    window.DropShadow.BorderSizePixel = 0
+    window.DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+    window.DropShadow.ScaleType = Enum.ScaleType.Slice
+    window.DropShadow.ImageTransparency = 0.5
+    window.DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    window.DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    window.DropShadow.Image = "rbxassetid://6014261993"
+    window.DropShadow.Size = UDim2.fromScale(1, 47, 1, 47)
+    window.DropShadow.BackgroundTransparency = 1
+    window.DropShadow.Name = "DropShadow"
+    window.DropShadow.Position = UDim2.fromScale(0.5, 0.5)
+	updateevent.Event:Connect(function(theme)
+		window.DropShadow.BackgroundColor3 = theme.extracolor
+	end)
+
+    window.UICorner = Instance.new("UICorner", window.Frame)
+    window.UICorner.CornerRadius = UDim.fromOffset(0, 10)
 
 	uis.InputBegan:Connect(function(key)
 		if key.KeyCode == window.hidebutton then
@@ -167,7 +196,7 @@ function library:CreateWindow(name, size, hidebutton)
 	window.BlackOutline2.ZIndex = - 1
 	window.BlackOutline2.Size = window.size + UDim2.fromOffset(6, 6)
 	window.BlackOutline2.BorderSizePixel = 0
-	window.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
+	window.BlackOutline2.BackgroundColor3 = Color3.fromRGB(127, 0, 255)
 	window.BlackOutline2.Position = UDim2.fromOffset(- 3, - 3)
 	updateevent.Event:Connect(function(theme)
 		window.BlackOutline2.BackgroundColor3 = theme.outlinecolor2
