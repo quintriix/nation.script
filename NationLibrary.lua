@@ -37,7 +37,7 @@ library.theme = {
 	itemscolor = Color3.fromRGB(170, 170, 170), 
 	itemscolor2 = Color3.fromRGB(255, 255, 255),
 	extracolor = Color3.fromRGB(127, 0, 255),
-	corner = UDim.fromOffset(0, 10)
+	corner = UDim.new(0, 10)
 }
 
 if library.theme.cursor then
