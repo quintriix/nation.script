@@ -713,7 +713,7 @@ function library:CreateWindow(name, size, hidebutton)
 				toggle.CheckedFrame = Instance.new("Frame", toggle.Main)
 				toggle.CheckedFrame.ZIndex = 5
 				toggle.CheckedFrame.BorderSizePixel = 0
-				toggle.CheckedFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				toggle.CheckedFrame.BackgroundColor3 = window.theme.extracolor
 				toggle.CheckedFrame.Size = toggle.Main.Size
 
 				toggle.Gradient2 = Instance.new("UIGradient", toggle.CheckedFrame)
