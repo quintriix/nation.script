@@ -237,7 +237,7 @@ local Azure = (function() -- src/Lua/Interface/Interface.Lua
 
 	function Azure:Create(OptionsLaughtOutLouds)
 		local Configuration = {
-			Tabs = {}, 
+			Tabs = {},
 			Title = OptionsLaughtOutLouds.title or "Azure Modded"
 		}
 
@@ -248,7 +248,7 @@ local Azure = (function() -- src/Lua/Interface/Interface.Lua
 		UI["2"] = InstanceNew("Frame", UI["1"])
 		UI["2"]["BorderSizePixel"] = 0
 		UI["2"]["BackgroundColor3"] = Color3FromRGB(24, 24, 24)
-		UI["2"]["Size"] = UDim2.new(200, 500)
+		UI["2"]["Size"] = UDim2.new(500, 500)
 
 		UI["2"]["Position"] = UDim2.new(0.5, -UI["2"]["Size"].X.Offset / 2, 0.5, -UI["2"]["Size"].Y.Offset / 2)
 		UI["2"]["BorderColor3"] = Color3FromRGB(0, 0, 0)
