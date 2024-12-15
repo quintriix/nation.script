@@ -1558,7 +1558,7 @@ function library:CreateWindow(name, size, hidebutton)
 							colorpicker.MainPicker.Visible = not colorpicker.MainPicker.Visible
 							window.OpenedColorPickers[colorpicker.MainPicker] = colorpicker.MainPicker.Visible
 							if window.OpenedColorPickers[colorpicker.MainPicker] then
-								colorpicker.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+								colorpicker.BlackOutline2.BackgroundColor3 = window.theme.extracolor
 							else
 								colorpicker.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
 							end
