@@ -5,9 +5,9 @@
     BTW THIS IS SUPPOSED TO BE UNOBFUSCATED I ADMIT MOST OF THIS AINT MY CODE ( i am uninterested in actually making an ESP cus nobody uses them in "hood" games, this was just to have something a bit more customizale than kiriot's esp )
 ]]
 
-_G.ESPSettings = {
-    enabled = true,
-	box = true,
+local ESPSettings = {
+    enabled = false,
+	box = false,
 	boxcolor1 = Color3.fromRGB(255,255,255),
 	name = false,
 	displayname = false,
@@ -136,12 +136,12 @@ function string_cut(s1, num)
 	return num == 0 and s1 or string.sub(s1, 1, num)
 end
 function formattext(text)
-    if _G.ESPSettings.textcase == 1 then
-        return string_cut(string.lower(text), _G.ESPSettings.maxtextlength)
-    elseif _G.ESPSettings.textcase == 3 then
-        return string_cut(string.upper(text), _G.ESPSettings.maxtextlength)
+    if ESPSettings.textcase == 1 then
+        return string_cut(string.lower(text), ESPSettings.maxtextlength)
+    elseif ESPSettings.textcase == 3 then
+        return string_cut(string.upper(text), ESPSettings.maxtextlength)
     end
-    return string_cut(text, _G.ESPSettings.maxtextlength)
+    return string_cut(text, ESPSettings.maxtextlength)
 end
 game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
     for k, v in pairs(loadedESPStuff) do
@@ -153,16 +153,16 @@ game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
     end
     local organizedPlayers = {}
     for i, v in ipairs(Players:GetPlayers()) do
-        local checks = _G.ESPSettings.checks
+        local checks = ESPSettings.checks
         if v and v.Character and v.Character:FindFirstChild("Humanoid") then
             local humanoid = v.Character:FindFirstChild("Humanoid")
-            if _G.ESPSettings.enabled and v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") and not (v==LOCAL_PLAYER) and not (checks[1] and humanoid.Health <= 0) and not (checks[2] and LOCAL_PLAYER:DistanceFromCharacter(v.Character.HumanoidRootPart.Position) / 5 > _G.ESPSettings.maxdistance) then
+            if ESPSettings.enabled and v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") and not (v==LOCAL_PLAYER) and not (checks[1] and humanoid.Health <= 0) and not (checks[2] and LOCAL_PLAYER:DistanceFromCharacter(v.Character.HumanoidRootPart.Position) / 5 > ESPSettings.maxdistance) then
                 table.insert(organizedPlayers, v)
             end 
         end
     end
-    local textcase = _G.ESPSettings.textcase
-    local textlength = _G.ESPSettings.maxtextlength
+    local textcase = ESPSettings.textcase
+    local textlength = ESPSettings.maxtextlength
     for i, v in ipairs(organizedPlayers) do
         pcall(function() -- pcall ignores errors (makes them not print into synx console)
             local humanoid = v.Character:FindFirstChild("Humanoid")
@@ -182,7 +182,7 @@ game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
                 )
                 local boxsize = { w = sizeX, h = sizeY }
 
-                if _G.ESPSettings.headdot then
+                if ESPSettings.headdot then
                     local head = v.Character:FindFirstChild("Head")
                     if head then
                         local headpos = head.Position
@@ -198,16 +198,16 @@ game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
                         loadedESPStuff.headdotoutline[i].Radius = difference * 2
                     end
                 end
-                if _G.ESPSettings.box then
+                if ESPSettings.box then
                     loadedESPStuff.innerbox[i].Position = Vector2.new(boxtop.x + 1, boxtop.y + 1)
                     loadedESPStuff.innerbox[i].Size = Vector2.new(boxsize.w - 2, boxsize.h - 2)
                     loadedESPStuff.innerbox[i].Visible = true
-                    loadedESPStuff.innerbox[i].Color = _G.ESPSettings.boxcolor1
+                    loadedESPStuff.innerbox[i].Color = ESPSettings.boxcolor1
 
                     loadedESPStuff.box[i].Position = Vector2.new(boxtop.x, boxtop.y)
                     loadedESPStuff.box[i].Size = Vector2.new(boxsize.w, boxsize.h)
                     loadedESPStuff.box[i].Visible = true
-                    loadedESPStuff.box[i].Color = _G.ESPSettings.boxcolor1
+                    loadedESPStuff.box[i].Color = ESPSettings.boxcolor1
                 end
                 if humanoid then
                     local health = math.ceil(humanoid.Health)
@@ -245,7 +245,7 @@ game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
                             Lerp(lerpValue, minColor.color.b, maxColor.color.b)
                         )
                     end
-                    if _G.ESPSettings.healthbar then
+                    if ESPSettings.healthbar then
                         loadedESPStuff.healthouter[i].Position = Vector2.new(boxtop.x - 6, boxtop.y - 1)
                         loadedESPStuff.healthouter[i].Size = Vector2.new(4, boxsize.h + 2)
                         loadedESPStuff.healthouter[i].Visible = true
@@ -258,15 +258,15 @@ game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
                         loadedESPStuff.healthinner[i].Color = ColorRange(health, {
                             [1] = {
                                 start = 0,
-                                color = _G.ESPSettings.healthbarcolor2,
+                                color = ESPSettings.healthbarcolor2,
                             },
                             [2] = {
                                 start = 100,
-                                color = _G.ESPSettings.healthbarcolor1,
+                                color = ESPSettings.healthbarcolor1,
                             },
                         })
 
-                        if _G.ESPSettings.health and _G.ESPSettings.hpvisibilitycap >= math.ceil((health / maxhealth) * 100) then
+                        if ESPSettings.health and ESPSettings.hpvisibilitycap >= math.ceil((health / maxhealth) * 100) then
                             loadedESPStuff.hptext[i].Text = tostring(health)
                             local textsize = loadedESPStuff.hptext[i].TextBounds
                             loadedESPStuff.hptext[i].Position = Vector2.new(
@@ -274,25 +274,25 @@ game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
                                 boxtop.y + math.clamp(boxsize.h + ySizeBar - 8, -4, boxsize.h - 10)
                             )
                             loadedESPStuff.hptext[i].Visible = true
-                            loadedESPStuff.hptext[i].Color = _G.ESPSettings.healthcolor
-                            loadedESPStuff.hptext[i].Transparency = _G.ESPSettings.healthtransparency
+                            loadedESPStuff.hptext[i].Color = ESPSettings.healthcolor
+                            loadedESPStuff.hptext[i].Transparency = ESPSettings.healthtransparency
                         end
-                    elseif _G.ESPSettings.health and _G.ESPSettings.hpvisibilitycap >= math.ceil((health / maxhealth) * 100) then
+                    elseif ESPSettings.health and ESPSettings.hpvisibilitycap >= math.ceil((health / maxhealth) * 100) then
                         loadedESPStuff.hptext[i].Text = tostring(health)
                         local textsize = loadedESPStuff.hptext[i].TextBounds
                         loadedESPStuff.hptext[i].Position = Vector2.new(boxtop.x - 3 - textsize.x, boxtop.y - 4)
                         loadedESPStuff.hptext[i].Visible = true
-                        loadedESPStuff.hptext[i].Color = _G.ESPSettings.healthcolor
-                        loadedESPStuff.hptext[i].Transparency = _G.ESPSettings.healthtransparency
+                        loadedESPStuff.hptext[i].Color = ESPSettings.healthcolor
+                        loadedESPStuff.hptext[i].Transparency = ESPSettings.healthtransparency
                     end
                 end
-                if _G.ESPSettings.name then
+                if ESPSettings.name then
                     loadedESPStuff.name[i].Text = formattext(v.Name)
-                    loadedESPStuff.name[i].Position = (_G.ESPSettings.displayname and v.Name ~= v.DisplayName) and Vector2.new(math.floor(boxtop.x + boxsize.w * 0.5), math.floor(boxtop.y - 27)) or Vector2.new(math.floor(boxtop.x + boxsize.w * 0.5), math.floor(boxtop.y - 15))
+                    loadedESPStuff.name[i].Position = (ESPSettings.displayname and v.Name ~= v.DisplayName) and Vector2.new(math.floor(boxtop.x + boxsize.w * 0.5), math.floor(boxtop.y - 27)) or Vector2.new(math.floor(boxtop.x + boxsize.w * 0.5), math.floor(boxtop.y - 15))
                     loadedESPStuff.name[i].Visible = true
                 end
-                if _G.ESPSettings.displayname then
-                    if _G.ESPSettings.name and v.Name ~= v.DisplayName then
+                if ESPSettings.displayname then
+                    if ESPSettings.name and v.Name ~= v.DisplayName then
                         loadedESPStuff.displayname[i].Text = formattext(v.DisplayName)
                         loadedESPStuff.displayname[i].Position = Vector2.new(math.floor(boxtop.x + boxsize.w * 0.5), math.floor(boxtop.y - 15))
                         loadedESPStuff.displayname[i].Visible = true
@@ -303,14 +303,14 @@ game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
                     end
                 end
                 local y_spot = 0
-                if _G.ESPSettings.distance then
+                if ESPSettings.distance then
                     local dist_pos = Vector2.new(math.floor(boxtop.x + boxsize.w * 0.5), boxtop.y + boxsize.h + y_spot)
                     loadedESPStuff.distance[i].Text = tostring(math.ceil(LOCAL_PLAYER:DistanceFromCharacter(rootpart) / 5)).. "m"
                     loadedESPStuff.distance[i].Position = dist_pos
                     loadedESPStuff.distance[i].Visible = true
                 end
             else
-                if _G.ESPSettings.outoffovarrows then
+                if ESPSettings.outoffovarrows then
                     loadedESPStuff.arrows[i].Visible = true
 
                     local rel = workspace.CurrentCamera.CFrame:PointToObjectSpace(v.Character.HumanoidRootPart.Position)
@@ -327,7 +327,7 @@ game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
                         local c, d = (b * u.X) - (a * u.Y), (a * u.X) + (b * u.Y)
                         return Vector2.new(c, d).Unit * v.Magnitude
                     end
-                    local pos = (dir * ScreenSize() * (_G.ESPSettings.arrowsoffset / 100)) + (ScreenSize() / 2)
+                    local pos = (dir * ScreenSize() * (ESPSettings.arrowsoffset / 100)) + (ScreenSize() / 2)
 
                     local size = math.floor(ScreenSize().X / 64)
 
@@ -335,9 +335,9 @@ game:GetService("RunService").RenderStepped:Connect(LPH_JIT_MAX(function()
                     loadedESPStuff.arrows[i].PointB = pos - getRotate(dir, .5) * size
                     loadedESPStuff.arrows[i].PointC = pos - getRotate(dir, -.5) * size
 
-                    loadedESPStuff.arrows[i].Color = _G.ESPSettings.arrowscolor
-                    loadedESPStuff.arrows[i].Filled = _G.ESPSettings.arrowsfilled
-                    loadedESPStuff.arrows[i].Thickness = _G.ESPSettings.arrowsthickness
+                    loadedESPStuff.arrows[i].Color = ESPSettings.arrowscolor
+                    loadedESPStuff.arrows[i].Filled = ESPSettings.arrowsfilled
+                    loadedESPStuff.arrows[i].Thickness = ESPSettings.arrowsthickness
                 end
             end	
         end)
