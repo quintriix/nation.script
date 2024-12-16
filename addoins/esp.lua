@@ -5,6 +5,8 @@
     BTW THIS IS SUPPOSED TO BE UNOBFUSCATED I ADMIT MOST OF THIS AINT MY CODE ( i am uninterested in actually making an ESP cus nobody uses them in "hood" games, this was just to have something a bit more customizale than kiriot's esp )
 ]]
 
+--[[ Default Config 
+
 _G.ESPSettings = {
     enabled = false,
 	box = false,
@@ -34,6 +36,11 @@ _G.ESPSettings = {
     maxdistance = 2^16,
 }
 
+]]
+if not _G.ESPSettings then
+    game.Players.LocalPlayer:Kick("Missing _G.ESPSettings config")
+    return
+end
 if _G.ESPLoaded then return end -- makes it so u cant execute the ACTUAL esp twice, itll just change config on 2nd and so on executions
 _G.ESPLoaded = true
 LPH_JIT_MAX = function(...) return ... end -- if u wanna obfuscate this then this makes stuff faster if ur using luraph (is just a normal function when not obfuscated with luraph)
