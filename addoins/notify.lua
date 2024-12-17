@@ -1,15 +1,17 @@
 local NotificationLibrary = {}
 
--- Crear una nueva GUI
-local NationNotify = Instance.new("ScreenGui")
-NationNotify.Name = "NationNotify"
-NationNotify.Parent = game.CoreGui
-NationNotify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-NationNotify.IgnoreGuiInset = true
+local NationNotify = game.CoreGui:FindFirstChild("NationNotify")
+
+if not NationNotify then
+    NationNotify = Instance.new("ScreenGui")
+    NationNotify.Name = "NationNotify"
+    NationNotify.Parent = game.CoreGui
+    NationNotify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    NationNotify.IgnoreGuiInset = true
+end
 
 function NotificationLibrary:Notify(TitleText, Desc, Delay)
 
-    -- Crear el contenedor principal
     local Holder = Instance.new("Frame")
     Holder.Parent = NationNotify
     Holder.BorderSizePixel = 0
@@ -18,9 +20,8 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
     Holder.Size = UDim2.new(1, 0, 1, 0)
     Holder.Position = UDim2.new(0, 0, 1, 0)
     Holder.BackgroundTransparency = 1
-    Holder.Name = "Holder"
+    Holder.Name = TitleText
     
-    -- Crear el contenedor de la notificación
     local Notification = Instance.new("Frame")
     Notification.Parent = Holder
     Notification.BorderSizePixel = 0
@@ -30,7 +31,6 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
     Notification.BackgroundTransparency = 1
     Notification.Name = "notify"
     
-    -- Crear el título de la notificación
     local TitleTextLabel = Instance.new("TextLabel")
     TitleTextLabel.Parent = Notification
     TitleTextLabel.TextStrokeTransparency = 0
@@ -43,14 +43,12 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
     TitleTextLabel.BackgroundTransparency = 1
     TitleTextLabel.Size = UDim2.new(0.5, 0, 1, 0)
     TitleTextLabel.Text = TitleText
-    TitleTextLabel.Name = "TitleText"
+    TitleTextLabel.Name = TitleText
     
-    -- Añadir padding al título
     local TitlePadding = Instance.new("UIPadding")
     TitlePadding.Parent = TitleTextLabel
     TitlePadding.PaddingRight = UDim.new(0, 2)
     
-    -- Crear la descripción de la notificación
     local DescTextLabel = Instance.new("TextLabel")
     DescTextLabel.Parent = Notification
     DescTextLabel.TextWrapped = true
@@ -66,15 +64,13 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
     DescTextLabel.AnchorPoint = Vector2.new(1, 0)
     DescTextLabel.Size = UDim2.new(0.5, 0, 1, 0)
     DescTextLabel.Text = Desc
-    DescTextLabel.Name = "DescText"
+    DescTextLabel.Name = Desc
     DescTextLabel.Position = UDim2.new(1, 0, 0, 0)
     
-    -- Añadir padding a la descripción
     local DescPadding = Instance.new("UIPadding")
     DescPadding.Parent = DescTextLabel
     DescPadding.PaddingLeft = UDim.new(0, 2)
     
-    -- Crear la línea de separación
     local Line = Instance.new("Frame")
     Line.Parent = Notification
     Line.BorderSizePixel = 0
@@ -83,22 +79,19 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
     Line.Position = UDim2.new(0, 0, 1, 0)
     Line.Name = "line"
     
-    -- Crear el layout para organizar los elementos
     local Layout = Instance.new("UIListLayout")
     Layout.Parent = Holder
     Layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
     Layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
     Layout.SortOrder = Enum.SortOrder.LayoutOrder
     
-    -- Añadir padding al Holder
     local HolderPadding = Instance.new("UIPadding")
     HolderPadding.Parent = Holder
     HolderPadding.PaddingBottom = UDim.new(0, 120)
 
-    -- Animar la línea y la notificación
     Line:TweenSize(UDim2.new(0, 0, 0, 2), "Out", "Linear", Delay)
     wait(Delay)
-    Holder:Destroy()  -- Eliminar la notificación después de animar
+    Holder:Destroy()
 end
 
 return NotificationLibrary
