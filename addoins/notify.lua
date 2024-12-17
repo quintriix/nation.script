@@ -79,7 +79,7 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
     Line.Parent = Notification
     Line.BorderSizePixel = 0
     Line.BackgroundColor3 = Color3.fromRGB(128, 0, 255)
-    Line.Size = UDim2.new(0.2973, 0, 0, 1)
+    Line.Size = UDim2.new(0, 185, 0, 2)
     Line.Position = UDim2.new(0, 0, 1, 0)
     Line.Name = "line"
     
@@ -96,7 +96,7 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
     HolderPadding.PaddingBottom = UDim.new(0, 120)
 
     -- Animar la línea y la notificación
-    Line:TweenSize(UDim2.new(0, 185, 0, 1), "Out", "Linear", Delay)
+    Line:TweenSize(UDim2.new(0, 0, 0, 2), "Out", "Linear", Delay)
     wait(0.35)
     Holder:Destroy()  -- Eliminar la notificación después de animar
 end
