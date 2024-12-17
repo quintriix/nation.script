@@ -9,6 +9,18 @@ if not NationNotify then
     NationNotify.Parent = game.CoreGui
     NationNotify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     NationNotify.IgnoreGuiInset = true
+end
+
+if not Holder then
+    Holder = Instance.new("Frame")
+    Holder.Parent = Holder
+    Holder.BorderSizePixel = 0
+    Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Holder.AnchorPoint = Vector2.new(0, 1)
+    Holder.Size = UDim2.new(1, 0, 1, 0)
+    Holder.Position = UDim2.new(0, 0, 1, 0)
+    Holder.BackgroundTransparency = 1
+    Holder.Name = TitleText
 
     local Layout = Instance.new("UIListLayout")
     Layout.Parent = NationNotify
@@ -17,20 +29,8 @@ if not NationNotify then
     Layout.SortOrder = Enum.SortOrder.LayoutOrder
 
     local HolderPadding = Instance.new("UIPadding")
-    HolderPadding.Parent = NationNotify
+    HolderPadding.Parent = Holder
     HolderPadding.PaddingBottom = UDim.new(0, 120)
-end
-
-if not Holder then
-    Holder = Instance.new("Frame")
-    Holder.Parent = NationNotify
-    Holder.BorderSizePixel = 0
-    Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Holder.AnchorPoint = Vector2.new(0, 1)
-    Holder.Size = UDim2.new(1, 0, 1, 0)
-    Holder.Position = UDim2.new(0, 0, 1, 0)
-    Holder.BackgroundTransparency = 1
-    Holder.Name = TitleText
 end
 
 function NotificationLibrary:Notify(TitleText, Desc, Delay)
