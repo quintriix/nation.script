@@ -1,6 +1,7 @@
 local NotificationLibrary = {}
 
 local NationNotify = game.CoreGui:FindFirstChild("NationNotify")
+local Holder = game.CoreGui:FindFirstChild("Holder")
 
 if not NationNotify then
     NationNotify = Instance.new("ScreenGui")
@@ -20,16 +21,8 @@ if not NationNotify then
     HolderPadding.PaddingBottom = UDim.new(0, 120)
 end
 
-function NotificationLibrary:Notify(TitleText, Desc, Delay)
-
-    local Holder = Instance.new("Frame")
-    local Notification = Instance.new("Frame")
-    local TitleTextLabel = Instance.new("TextLabel")
-    local TitlePadding = Instance.new("UIPadding")
-    local DescTextLabel = Instance.new("TextLabel")
-    local DescPadding = Instance.new("UIPadding")
-    local Line = Instance.new("Frame")
-
+if not Holder then
+    Holder = Instance.new("Frame")
     Holder.Parent = NationNotify
     Holder.BorderSizePixel = 0
     Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -38,6 +31,16 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
     Holder.Position = UDim2.new(0, 0, 1, 0)
     Holder.BackgroundTransparency = 1
     Holder.Name = TitleText
+end
+
+function NotificationLibrary:Notify(TitleText, Desc, Delay)
+
+    local Notification = Instance.new("Frame")
+    local TitleTextLabel = Instance.new("TextLabel")
+    local TitlePadding = Instance.new("UIPadding")
+    local DescTextLabel = Instance.new("TextLabel")
+    local DescPadding = Instance.new("UIPadding")
+    local Line = Instance.new("Frame")
     
     Notification.Parent = Holder
     Notification.BorderSizePixel = 0
