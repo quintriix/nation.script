@@ -1,6 +1,7 @@
 local NotificationLibrary = {}
 
 local NationNotify = game.CoreGui:FindFirstChild("NationNotify")
+local Holder = NationNotify:FindFirstChild("Holder")
 
 if not NationNotify then
     NationNotify = Instance.new("ScreenGui")
@@ -8,8 +9,10 @@ if not NationNotify then
     NationNotify.Parent = game.CoreGui
     NationNotify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     NationNotify.IgnoreGuiInset = true
+end
 
-    local Holder = Instance.new("Frame")
+if not Holder then
+    Holder = Instance.new("Frame")
     Holder.Parent = NationNotify
     Holder.BorderSizePixel = 0
     Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
