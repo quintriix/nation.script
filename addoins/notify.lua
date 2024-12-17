@@ -8,12 +8,28 @@ if not NationNotify then
     NationNotify.Parent = game.CoreGui
     NationNotify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     NationNotify.IgnoreGuiInset = true
+
+    local Layout = Instance.new("UIListLayout")
+    Layout.Parent = NationNotify
+    Layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    Layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+    Layout.SortOrder = Enum.SortOrder.LayoutOrder
+
+    local HolderPadding = Instance.new("UIPadding")
+    HolderPadding.Parent = NationNotify
+    HolderPadding.PaddingBottom = UDim.new(0, 120)
 end
 
-local Holder = NationNotify:FindFirstChild("Holder")
+function NotificationLibrary:Notify(TitleText, Desc, Delay)
 
-if not Holder then
-    Holder = Instance.new("Frame")
+    local Holder = Instance.new("Frame")
+    local Notification = Instance.new("Frame")
+    local TitleTextLabel = Instance.new("TextLabel")
+    local TitlePadding = Instance.new("UIPadding")
+    local DescTextLabel = Instance.new("TextLabel")
+    local DescPadding = Instance.new("UIPadding")
+    local Line = Instance.new("Frame")
+
     Holder.Parent = NationNotify
     Holder.BorderSizePixel = 0
     Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -22,27 +38,7 @@ if not Holder then
     Holder.Position = UDim2.new(0, 0, 1, 0)
     Holder.BackgroundTransparency = 1
     Holder.Name = TitleText
-
-    local HolderPadding = Instance.new("UIPadding")
-    HolderPadding.Parent = Holder
-    HolderPadding.PaddingBottom = UDim.new(0, 120)
-
-    local Layout = Instance.new("UIListLayout")
-    Layout.Parent = Holder
-    Layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    Layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
-    Layout.SortOrder = Enum.SortOrder.LayoutOrder
-end
-
-function NotificationLibrary:Notify(TitleText, Desc, Delay)
-
-    local Notification = Instance.new("Frame")
-    local TitleTextLabel = Instance.new("TextLabel")
-    local TitlePadding = Instance.new("UIPadding")
-    local DescTextLabel = Instance.new("TextLabel")
-    local DescPadding = Instance.new("UIPadding")
-    local Line = Instance.new("Frame")
-
+    
     Notification.Parent = Holder
     Notification.BorderSizePixel = 0
     Notification.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
