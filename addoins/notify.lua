@@ -13,7 +13,7 @@ end
 
 if not Holder then
     Holder = Instance.new("Frame")
-    Holder.Parent = Holder
+    Holder.Parent = NationNotify
     Holder.BorderSizePixel = 0
     Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Holder.AnchorPoint = Vector2.new(0, 1)
