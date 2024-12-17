@@ -20,7 +20,7 @@ if not NationNotify then
     Holder.Name = "Holder"
 
     local Layout = Instance.new("UIListLayout")
-    Layout.Parent = NationNotify
+    Layout.Parent = Holder
     Layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
     Layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
     Layout.SortOrder = Enum.SortOrder.LayoutOrder
