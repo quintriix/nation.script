@@ -20,7 +20,7 @@ if not Holder then
     Holder.Size = UDim2.new(1, 0, 1, 0)
     Holder.Position = UDim2.new(0, 0, 1, 0)
     Holder.BackgroundTransparency = 1
-    Holder.Name = TitleText
+    Holder.Name = "Holder"
 
     local Layout = Instance.new("UIListLayout")
     Layout.Parent = NationNotify
