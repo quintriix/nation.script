@@ -92,7 +92,7 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
 
     Line:TweenSize(UDim2.new(0, 0, 0, 2), "Out", "Linear", Delay)
     wait(Delay)
-    Holder:Destroy()
+    Notification:Destroy()
 end
 
 return NotificationLibrary
