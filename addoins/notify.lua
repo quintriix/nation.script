@@ -96,7 +96,7 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
     NotificationLibrary["a"] = Instance.new("UIPadding", NotificationLibrary["2"]);
     NotificationLibrary["a"]["PaddingBottom"] = UDim.new(0, 120);
 
-	NotificationLibrary["8"]:TweenSize(UDim2.new(0, 450, 0, 4), "Out", "Linear", Delay)
+	NotificationLibrary["8"]:TweenSize(UDim2.new(0, 185, 0, 1), "Out", "Linear", Delay)
 	wait(0.1)
 	NotificationLibrary["2"]:Destroy()
 end
