@@ -101,4 +101,4 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
 	NotificationLibrary["2"]:Destroy()
 end
 
-return NotificationLibrary["1"], require
+return NotificationLibrary
