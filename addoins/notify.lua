@@ -97,7 +97,7 @@ function NotificationLibrary:Notify(TitleText, Desc, Delay)
 
     -- Animar la línea y la notificación
     Line:TweenSize(UDim2.new(0, 185, 0, 1), "Out", "Linear", Delay)
-    wait(0.1)
+    wait(Delay)
     Holder:Destroy()  -- Eliminar la notificación después de animar
 end
 
