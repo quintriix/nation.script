@@ -82,6 +82,7 @@ function library:CreateWindow(name, size, hidebutton, icon)
 	window.Main = Instance.new("ScreenGui", coregui)
 	window.Main.Name = name
 	window.Main.DisplayOrder = 15
+	window.Main.ZIndexBehavior = Enum.ZIndexBehavior.Global
 
 	local dragging, draginput2, dragstart2, startpos
 	uis.InputChanged:Connect(function(input)
@@ -122,6 +123,30 @@ function library:CreateWindow(name, size, hidebutton, icon)
 	window.Frame.AnchorPoint = Vector2.new(0.5, 0.5)
 	updateevent.Event:Connect(function(theme)
 		window.Frame.BackgroundColor3 = theme.backgroundcolor
+	end)
+
+	window.DropShadowHolder = Instance.new("Frame", window.Frame)
+	window.DropShadowHolder.ZIndex = 0
+	window.DropShadowHolder.BorderSizePixel = 0
+	window.DropShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+	window.DropShadowHolder.Name = "DropShadowHolder"
+	window.DropShadowHolder.BackgroundTransparency = 1
+
+	window.DropShadow = Instance.new("ImageLabel", window.DropShadowHolder)
+	window.DropShadow.ZIndex = 0
+	window.DropShadow.BorderSizePixel = 0
+	window.DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+	window.DropShadow.ScaleType = Enum.ScaleType.Slice
+	window.DropShadow.ImageTransparency = 0.5
+	window.DropShadow.ImageColor3 = window.theme.extracolor
+	window.DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+	window.DropShadow.Image = "rbxassetid://6014261993"
+	window.DropShadow.Size = UDim2.new(1, 47, 1, 47)
+	window.DropShadow.BackgroundTransparency = 1
+	window.DropShadow.Name = "DropShadow"
+	window.DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+	updateevent.Event:Connect(function(theme)
+		window.DropShadow.BackgroundColor3 = theme.extracolor
 	end)
 
 	uis.InputBegan:Connect(function(key)
