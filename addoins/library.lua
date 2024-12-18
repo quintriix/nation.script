@@ -66,7 +66,7 @@ if library.theme.cursor then
 	end
 end
 
-function library:CreateWindow(name, size, hidebutton)
+function library:CreateWindow(name, size, hidebutton, icon)
 	local window = {}
 	window.name = name or "Nation.Dahood | quintrix | .gg/nationdahood"
 	window.size = UDim2.fromOffset(size.X, size.Y) or UDim2.fromOffset(500, 600)
@@ -207,7 +207,7 @@ function library:CreateWindow(name, size, hidebutton)
 	window.NameLabel.TextXAlignment = Enum.TextXAlignment.Left
 	window.NameLabel.Font = window.theme.font
 	window.NameLabel.Name = "title"
-	window.NameLabel.Position = UDim2.fromOffset(4, - 2)
+	window.NameLabel.Position = UDim2.fromOffset(30, - 2)
 	window.NameLabel.BackgroundTransparency = 1
 	window.NameLabel.Size = UDim2.fromOffset(190, window.TopBar.AbsoluteSize.Y / 2 - 2)
 	window.NameLabel.TextSize = window.theme.titlesize
@@ -216,6 +216,13 @@ function library:CreateWindow(name, size, hidebutton)
 		window.NameLabel.Font = theme.font
 		window.NameLabel.TextSize = theme.titlesize
 	end)
+
+	window.IconLabel = Instance.new("ImageLabel", window.TopBar)
+	window.IconLabel.BackgroundTransparency = 1
+	window.IconLabel.Size = UDim2.fromOffset(22, 22)
+	window.IconLabel.Position = UDim2.fromOffset(4, -1)
+	window.IconLabel.Image = icon or "rbxassetid://122082434087394"
+	window.IconLabel.Name = "Icon"
 
 	window.Line2 = Instance.new("Frame", window.TopBar)
 	window.Line2.Name = "line"
