@@ -1,6 +1,14 @@
+local ids = {
+    [{2788229376}], -- DaHood
+    [{4483381587}], -- Baseplate
+    [{103539521748777}], -- FlameHood
+    [{88582222971530}] -- DelHood
+    
+}
+
 local games = {
-    [{2788229376}] = "https://raw.githubusercontent.com/quintriix/nation.script/refs/heads/main/addoins/nation.dahood",
-    [{4483381587}] = "https://raw.githubusercontent.com/quintriix/nation.script/refs/heads/main/addoins/nation.dahood"
+    ids = "https://raw.githubusercontent.com/quintriix/nation.script/refs/heads/main/addoins/nation.dahood",
+    ids = "https://raw.githubusercontent.com/quintriix/nation.script/refs/heads/main/addoins/nation.dahood"
 }
 
 for ids, url in next, games do
