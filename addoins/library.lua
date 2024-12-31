@@ -246,7 +246,7 @@ function library:CreateWindow(name, size, hidebutton, icon)
 	window.IconLabel.BackgroundTransparency = 1
 	window.IconLabel.Size = UDim2.fromOffset(22, 22)
 	window.IconLabel.Position = UDim2.fromOffset(4, -1)
-	window.IconLabel.Image = icon or "rbxassetid://122082434087394"
+	window.IconLabel.Image = icon or "rbxassetid://92698284850535"
 	window.IconLabel.Name = "Icon"
 
 	window.Line2 = Instance.new("Frame", window.TopBar)
