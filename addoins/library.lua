@@ -94,6 +94,10 @@ function library:CreateWindow(name, size, hidebutton, icon)
 	window.Background.Name = "Background"
 	window.Background.BackgroundTransparency = 0.5
 
+	window.BlurEffect = Instance.new("BlurEffect", lighting)
+	window.BlurEffect.Size = 25
+	window.BlurEffect.Enabled = true
+
 	local dragging, draginput2, dragstart2, startpos
 	uis.InputChanged:Connect(function(input)
 		if input == draginput2 and dragging then
@@ -162,6 +166,7 @@ function library:CreateWindow(name, size, hidebutton, icon)
 	uis.InputBegan:Connect(function(key)
 		if key.KeyCode == window.hidebutton then
 			window.Frame.Visible = not window.Frame.Visible
+			window.BlurEffect.Enabled = not window.BlurEffect.Enabled
 		end
 	end)
 
