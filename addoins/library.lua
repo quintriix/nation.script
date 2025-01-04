@@ -9,6 +9,7 @@ local tweenservice = game:GetService("TweenService")
 local textservice = game:GetService("TextService")
 local coregui = game:GetService("CoreGui")
 local httpservice = game:GetService("HttpService")
+local lighting = game:GetService("Lighting")
 
 local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 
@@ -83,6 +84,15 @@ function library:CreateWindow(name, size, hidebutton, icon)
 	window.Main.Name = name
 	window.Main.DisplayOrder = 15
 	window.Main.ZIndexBehavior = Enum.ZIndexBehavior.Global
+
+	window.Background = Instance.new("Frame", window.Main)
+	window.Background.ZIndex = -5
+	window.Background.BorderSizePixel = 0
+	window.Background.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	window.Background.Size = UDim2.new(1, 0, 1, 0)
+	window.Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	window.Background.Name = "Background"
+	window.Background.BackgroundTransparency = 0.5
 
 	local dragging, draginput2, dragstart2, startpos
 	uis.InputChanged:Connect(function(input)
