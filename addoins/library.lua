@@ -255,9 +255,13 @@ function library:CreateWindow(name, size, hidebutton, icon)
 	window.Line2.Size = UDim2.fromOffset(window.size.X.Offset, 1)
 	window.Line2.BorderSizePixel = 0
 	window.Line2.BackgroundColor3 = window.theme.extracolor
+	window.Line2.BackgroundTransparency = 0.25
 	updateevent.Event:Connect(function(theme)
 		window.Line2.BackgroundColor3 = theme.extracolor
 	end)
+
+	window.LineGradient = Instance.new("UIGradient", window.Line2)
+	window.LineGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.25),NumberSequenceKeypoint.new(0.500, 1),NumberSequenceKeypoint.new(1.000, 0.25)}
 
 	window.TabList = Instance.new("Frame", window.TopBar)
 	window.TabList.Name = "tablist"
