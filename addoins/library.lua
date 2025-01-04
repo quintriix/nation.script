@@ -84,6 +84,7 @@ function library:CreateWindow(name, size, hidebutton, icon)
 	window.Main.Name = name
 	window.Main.DisplayOrder = 15
 	window.Main.ZIndexBehavior = Enum.ZIndexBehavior.Global
+	window.Main.IgnoreGuiInset = true
 
 	window.Background = Instance.new("Frame", window.Main)
 	window.Background.ZIndex = -5
@@ -167,6 +168,7 @@ function library:CreateWindow(name, size, hidebutton, icon)
 		if key.KeyCode == window.hidebutton then
 			window.Frame.Visible = not window.Frame.Visible
 			window.BlurEffect.Enabled = not window.BlurEffect.Enabled
+			window.Background.Visible = not window.Background.Visible
 		end
 	end)
 
