@@ -4,12 +4,12 @@ local HttpService = game:GetService("HttpService")
 local CoreGui = game:GetService("CoreGui")
 
 -- Variables
-local vynixuModules = {
-	Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+local quintrixModules = {
+	Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/quintriix/nation.script/refs/heads/main/addoins/extras/Functions.lua"))()
 }
 local assets = {
-    DiscordInvitePrompt = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/raw/main/Discord%20Inviter/Assets/DiscordInvitePrompt.rbxm"),
-    NotificationSound = LoadCustomAsset("https://github.com/RegularVynixu/Utilities/raw/main/Discord%20Inviter/Assets/Notification.mp3")
+    DiscordInvitePrompt = LoadCustomInstance("https://github.com/quintriix/nation.script/raw/main/addoins/extras/DiscordInvitePrompt.rbxm"),
+    NotificationSound = LoadCustomAsset("https://github.com/quintriix/nation.script/raw/main/addoins/extras/Notification.mp3")
 }
 local module = {}
 
