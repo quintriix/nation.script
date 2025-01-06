@@ -5,7 +5,7 @@ local CoreGui = game:GetService("CoreGui")
 
 -- Variables
 local quintrixModules = {
-	Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/quintriix/nation.script/refs/heads/main/addoins/extras/Functions.lua"))()
+	Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/quintriix/nation.script/refs/heads/main/addoins/DiscordInviter/functions.lua"))()
 }
 local assets = {
     DiscordInvitePrompt = LoadCustomInstance("https://github.com/quintriix/nation.script/raw/main/addoins/extras/DiscordInvitePrompt.rbxm"),
