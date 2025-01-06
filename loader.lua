@@ -4,7 +4,7 @@ pcall(function()
 end)
 
 local games = {
-    [{2788229376}] = "https://raw.githubusercontent.com/quintriix/nation.script/refs/heads/main/addoins/scripts/nation.dahood.lua", -- DA HOOD
+    [{2788229376}] = "https://raw.githubusercontent.com/quintriix/nation.script/refs/heads/main/addoins/scripts/dahood.lua", -- DA HOOD
     [{3956818381}] = "", -- NINJA LEGENDS
 }
 
